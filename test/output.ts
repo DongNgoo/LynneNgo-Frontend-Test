@@ -15,5 +15,12 @@ export function createTodoController(model: ModelType, setTodos: (todos: string[
         model.removeTodo(index);
         setTodos([...model.getTodos()]);
     };
+
+    const handleReset = () => {
+        model.reset();
+        setTodos([...model.getTodos()]);
+    };
+
+    return { handleAdd, handleDelete, handleReset };
     
 }
