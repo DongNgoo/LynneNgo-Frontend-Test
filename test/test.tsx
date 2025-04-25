@@ -1,11 +1,20 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import styles from './test.module.css';
+import { createTodoModel } from './model';
+import { createTodoController } from './output';
 
 
 export default function test (): JSX.Element {
 // Your Test Starts Here
+
+const model = createTodoModel();
+const [ input, setInput ] = useState<string>('');
+const [todos, setTodos] = useState<string[]>(model.getTodos());
+
+const controller = createTodoController(model, setTodos);
+
     return (
         <div className={styles.container}>
             
