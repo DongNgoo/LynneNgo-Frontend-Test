@@ -27,7 +27,7 @@ export default function TodoView ({
             />
             <button onClick={onAdd} style={styles.button}>Add</button>
         </div>
-        <ul style={styles.list}>
+        <ul style={styles.todolist}>
             {todos.map((todo, index) => (
                 <li key={index} style = {styles.todoItem}>
                     <span>{todo}</span>
@@ -42,28 +42,32 @@ export default function TodoView ({
 
 const styles = {
     container: {
-        width: '80%',
-        margin: 'auto',
-        lineHeight: '1.5',
-        marginBottom: '10px',
+        maxWidth: '500px',
+        margin: '50px auto',
+        padding: '16px',
+        borderRadius: '12px',
+        background: '#fff',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     },
     title: {
-        marginTop: '10px',
-        fontWeight: '500',
-        textAlign: 'center',
+        marginBottom: '16px',
+        fontSize: '24px',
     },
     inputArea: {
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: '10px',
+        flexDirection: 'column' as 'column',
+        gap: '10px',
+        marginBottom: '16px',
     },
     input: {
         width: '100%',
+        fontSize: '16px',
+        background: "#007bff",
         padding: '10px',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        boxSizing: 'border-box',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
     },
     button: {
         padding: '10px 20px',
@@ -73,7 +77,7 @@ const styles = {
         borderRadius: '4px',
         cursor: 'pointer',
     },
-    list: {
+    todolist: {
         listStyleType: 'none',
         padding: '0',
     },
