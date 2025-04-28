@@ -21,13 +21,15 @@ const controller = createTodoController(model, setTodos);
                 input={input}
                 todos={todos}
                 onInputChange={setInput}
-                onAdd={() => {controller.handleAdd(input);
+                onAdd={() => {
+                    const newTodos = controller.handleAdd(input);
+                    setTodos(newTodos);
                     setInput('');
                 }}
                 onDelete={controller.handleDelete}
                 onReset={() => controller.handleReset()}
             />
-            
+
         </div>
     );
 };

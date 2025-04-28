@@ -8,7 +8,7 @@ type ModelType = {
 export function createTodoController(model: ModelType, setTodos: (todos: string[]) => void) {
     const handleAdd = (text: string) => {
         model.addTodo(text);
-        setTodos(model.getTodos());
+       return model.getTodos();
     };
 
     const handleDelete = (index: number) => {

@@ -62,9 +62,9 @@ const styles = {
     input: {
         width: '100%',
         fontSize: '16px',
-        background: "#007bff",
+        background: "#fff",
         padding: '10px',
-        color: '#fff',
+        color: '#000',
         border: 'none',
         borderRadius: '8px',
         cursor: 'pointer',
