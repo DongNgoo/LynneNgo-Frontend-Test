@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './test.module.css';
 import { createTodoModel } from './model';
 import { createTodoController } from './output';
@@ -9,8 +9,8 @@ import  TodoView  from './view';
 
 export default function test (): JSX.Element {
 // Your Test Starts Here
-
-const model =  useMemo(() => createTodoModel(), []); 
+const modelRef = useRef(createTodoModel());
+const model = modelRef.current;
 
 const [todos, setTodos] = useState<string[]>(model.getTodos());
 const [input, setInput] = useState<string>('');
