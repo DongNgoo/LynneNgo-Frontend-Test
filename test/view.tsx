@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface TodoViewProps {
     input: string
@@ -17,6 +17,7 @@ export default function TodoView ({
     onDelete,
     onReset
 }: TodoViewProps) {
+    
     return (
     <div style={styles.container}>
         <h1 style={styles.title}>To-Do List</h1>
@@ -39,6 +40,8 @@ export default function TodoView ({
     </div>
     );
 }
+// Check if the window width is less than or equal to 768px
+const isMobile = window.innerWidth <= 768;
 
 const styles = {
     container: {
@@ -48,6 +51,7 @@ const styles = {
         borderRadius: '12px',
         background: '#fff',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+       
     },
     title: {
         marginBottom: '16px',
@@ -55,7 +59,8 @@ const styles = {
     },
     inputArea: {
         display: 'flex',
-        flexDirection: 'column' as 'column',
+        // Set the flex-direction to column if the window width is less than or equal to 768px
+        flexDirection:  isMobile ? 'column' as const : 'row' as const,
         gap: '10px',
         marginBottom: '16px',
     },
@@ -98,4 +103,4 @@ const styles = {
         borderRadius: '4px',
         cursor: 'pointer',
     },
-    }
+}
