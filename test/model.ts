@@ -8,7 +8,10 @@ export function createTodoModel() {
     const addTodo = (text: string) => {
         if(text.trim() !== '') {
         todos.push(text.trim());
+        console.log(`New item added at index ${todos.length - 1}`);
         }
+        return todos;
+        
     };
 //Remove a todo by filtering out the todo with the given index
     const  removeTodo = (index: number) => {

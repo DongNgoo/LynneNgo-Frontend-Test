@@ -29,7 +29,7 @@ export default function TodoView ({
         </div>
         <ul style={styles.todolist}>
             {todos.map((todo, index) => (
-                <li key={index} style = {styles.todoItem}>
+                <li key={`todo-${index}`} style = {styles.todoItem}>
                     <span>{todo}</span>
                     <button onClick={() => onDelete(index)} style={styles.deleteBtn}>Delete</button>
                 </li>

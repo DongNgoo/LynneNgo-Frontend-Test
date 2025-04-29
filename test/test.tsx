@@ -1,17 +1,19 @@
 'use client';
 
-import React, { use, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styles from './test.module.css';
 import { createTodoModel } from './model';
 import { createTodoController } from './output';
 import  TodoView  from './view';
 
+
 export default function test (): JSX.Element {
 // Your Test Starts Here
 
-const model = createTodoModel();
-const [ input, setInput ] = useState<string>('');
+const model =  useMemo(() => createTodoModel(), []); 
+
 const [todos, setTodos] = useState<string[]>(model.getTodos());
+const [input, setInput] = useState<string>('');
 
 const controller = createTodoController(model, setTodos);
 
@@ -22,9 +24,13 @@ const controller = createTodoController(model, setTodos);
                 todos={todos}
                 onInputChange={setInput}
                 onAdd={() => {
-                    const newTodos = controller.handleAdd(input);
+                    if(input.trim() !== ''){
+                   const newTodos = controller.handleAdd(input);
                     setTodos(newTodos);
                     setInput('');
+                    }else {
+                        alert('Please enter a task');
+                    }
                 }}
                 onDelete={controller.handleDelete}
                 onReset={() => controller.handleReset()}

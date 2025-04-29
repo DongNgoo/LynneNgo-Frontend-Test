@@ -7,7 +7,7 @@ type ModelType = {
 // createTodoController take in a model and a setTodos function
 export function createTodoController(model: ModelType, setTodos: (todos: string[]) => void) {
     const handleAdd = (text: string) => {
-        model.addTodo(text);
+       model.addTodo(text);
        return model.getTodos();
     };
 
