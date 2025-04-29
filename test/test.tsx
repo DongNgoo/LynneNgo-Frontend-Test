@@ -9,14 +9,18 @@ import  TodoView  from './view';
 
 export default function test (): JSX.Element {
 // Your Test Starts Here
+
+//initialize the model, controller, and view
 const modelRef = useRef(createTodoModel());
 const model = modelRef.current;
+
 
 const [todos, setTodos] = useState<string[]>(model.getTodos());
 const [input, setInput] = useState<string>('');
 
-const controller = createTodoController(model, setTodos);
 
+const controller = createTodoController(model, setTodos);
+//return the view
     return (
         <div className={styles.container}>
             <TodoView 
